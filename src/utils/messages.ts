@@ -70,7 +70,12 @@ function sinEaseOut(timestamp: any, begining: any, change: any, duration: any) {
  * @param {*} scroll scroll distance
  */
 function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
-  const raf = typeof window !== 'undefined' ? window?.requestAnimationFrame : undefined;
+  let raf;
+  if (typeof window !== undefined) {
+    raf = window?.requestAnimationFrame;
+  } else {
+    return;
+  }
   let start = 0;
   const step = (timestamp) => {
     if (!start) {
