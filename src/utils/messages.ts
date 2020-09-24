@@ -71,7 +71,7 @@ function sinEaseOut(timestamp: any, begining: any, change: any, duration: any) {
  */
 function scrollWithSlowMotion(target: any, scrollStart: any, scroll: number) {
   let raf;
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     raf = window?.requestAnimationFrame;
   } else {
     return;
