@@ -52,7 +52,7 @@ const usePreview = (zoomStep) => {
   const [state, dispatch] = useReducer(reducer, { ...initState });
 
   const initFileSize = (width: number, height: number):void => {
-    const { innerWidth, innerHeight } = window;
+    const { innerWidth, innerHeight } = typeof window !== undefined ? window : {innerWidth: 0, innerHeight: 0};
     setWindowSize({ width: innerWidth, height: innerHeight });
     // default size
     setFileSize({ width, height });
